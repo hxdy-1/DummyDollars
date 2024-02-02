@@ -6,6 +6,7 @@ import { Await, useLoaderData, defer } from "react-router-dom";
 
 const DashboardPage = () => {
 	const { data } = useLoaderData();
+	document.getElementById("root").style.justifyContent = "flex-start";
 
 	return (
 		<>
@@ -16,7 +17,7 @@ const DashboardPage = () => {
 							textAlign: "center",
 							fontWeight: "bolder",
 							fontSize: "1.2rem",
-							marginTop: "10rem",
+							// marginTop: "10rem",
 						}}
 					>
 						🔃 Loading...

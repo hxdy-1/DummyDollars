@@ -8,7 +8,7 @@ const UsersList = ({ users }) => {
 		<>
 			{users.length === 0 && (
 				<h2 className="font-sans font-semibold text-lg mx-auto">
-					No users found :(
+					No users found ☹️
 				</h2>
 			)}
 			{users.length !== 0 && (

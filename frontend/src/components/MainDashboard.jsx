@@ -26,11 +26,14 @@ const MainDashboard = ({ balance, users }) => {
 	}, [filter]);
 
 	return (
-		<div className="font-sans text-white py-4 px-6 flex flex-col gap-6 mx-auto w-10/12 mt-28">
-			<h3 className="font-semibold text-xl bg-black text-center py-4 rounded-md shadow-lg mx-auto w-1/4 flex justify-evenly">
-				<span>💰 My Balance:</span> <span> &#8377; {balance}/-</span>
+		<div className="font-sans text-white py-4 flex flex-col gap-6 mx-auto w-full mt-20 md:mt-10 lg:mt-32">
+			<h3 className="font-semibold text-xl bg-black text-center py-4 px-2 rounded-md shadow-lg mx-auto flex justify-evenly gap-2 md:text-2xl md:px-4">
+				<span>💰 My Balance: </span>
+				<span> &#8377; {balance}/-</span>
 			</h3>
-			<h2 className="text-3xl font-bold">👪 All Users</h2>
+			<h2 className="text-xl font-semibold md:text-3xl md:font-bold xl:text-4xl">
+				👪 All Users
+			</h2>
 			<SearchInput setFilter={setFilter} />
 			<UsersList users={allUsers} />
 		</div>

@@ -3,6 +3,7 @@ import LoginForm from "../components/LoginForm";
 import axios from "axios";
 
 const LoginPage = () => {
+	document.getElementById("root").style.justifyContent = "center";
 	return <LoginForm />;
 };
 

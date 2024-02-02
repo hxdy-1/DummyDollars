@@ -4,6 +4,7 @@ import axios from "axios";
 import { redirect } from "react-router-dom";
 
 const SendPage = () => {
+	document.getElementById("root").style.justifyContent = "center";
 	return <SendMoney />;
 };
 

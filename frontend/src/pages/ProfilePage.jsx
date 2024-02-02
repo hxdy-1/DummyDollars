@@ -8,9 +8,10 @@ import DeleteUser from "../components/DeleteUser";
 
 const ProfilePage = () => {
 	const [searchParams] = useSearchParams();
+	document.getElementById("root").style.justifyContent = "center";
 	return (
 		<Card>
-			<h1 className="font-sans font-bold text-4xl ">
+			<h1 className="font-sans font-bold text-2xl md:text-4xl ">
 				{searchParams.get("username")}
 			</h1>
 			<Link

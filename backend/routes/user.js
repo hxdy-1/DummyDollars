@@ -150,8 +150,8 @@ router.get("/bulk", async (req, res) => {
 const deleteBody = z.string();
 
 router.delete("/delete", middleware, async (req, res) => {
-	// const username = req.body.username;
-	console.log("username: ", username);
+	const username = req.body.username;
+	// console.log("username: ", username);
 
 	const { success } = deleteBody.safeParse(username);
 	if (!success) {
