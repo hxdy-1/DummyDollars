@@ -3,12 +3,22 @@ import Logout from "../components/Logout";
 import Card from "../utils/Card";
 import UpdateForm from "../components/UpdateForm";
 import axios from "axios";
-import { redirect } from "react-router-dom";
+import { Link, redirect, useSearchParams } from "react-router-dom";
 import DeleteUser from "../components/DeleteUser";
 
 const ProfilePage = () => {
+	const [searchParams] = useSearchParams();
 	return (
 		<Card>
+			<h1 className="font-sans font-bold text-4xl ">
+				{searchParams.get("username")}
+			</h1>
+			<Link
+				to="/dashboard"
+				className="bg-white text-center font-bold w-full text-black rounded-md py-2 px-4 transition-all transform hover:bg-blue-500 hover:text-white active:translate-y-0.5 shadow-none"
+			>
+				⬅️ Go Back
+			</Link>
 			<UpdateForm />
 			<Logout />
 			<DeleteUser />

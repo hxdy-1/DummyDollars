@@ -2,23 +2,27 @@ import React, { useState } from "react";
 import ListItem from "./ListItem";
 
 const UsersList = ({ users }) => {
-	// console.log(allUsers);
-
-	const handleClick = (element) => {
-		console.log(element);
-	};
+	// console.log(users);
 
 	return (
-		<ul className="flex flex-col gap-4 mt-2">
-			{users?.map((user, index) => (
-				<ListItem
-					className="bg-black px-2 py-2 shadow-lg rounded-md"
-					key={index}
-					user={user}
-					onButtonClick={handleClick}
-				/>
-			))}
-		</ul>
+		<>
+			{users.length === 0 && (
+				<h2 className="font-sans font-semibold text-lg mx-auto">
+					No users found :(
+				</h2>
+			)}
+			{users.length !== 0 && (
+				<ul className="flex flex-col gap-4 mt-2">
+					{users?.map((user, index) => (
+						<ListItem
+							className="bg-black px-2 py-2 shadow-lg rounded-md"
+							key={index}
+							user={user}
+						/>
+					))}
+				</ul>
+			)}
+		</>
 	);
 };
 

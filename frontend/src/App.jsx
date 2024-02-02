@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 							marginTop: "10rem",
 						}}
 					>
-						Loading...
+						🔃 Loading...
 					</h1>
 				}
 			>
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
 							marginTop: "10rem",
 						}}
 					>
-						Loading...
+						🔃 Loading...
 					</h1>
 				}
 			>
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
 							marginTop: "10rem",
 						}}
 					>
-						Loading...
+						🔃 Loading...
 					</h1>
 				}
 			>
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
 							marginTop: "10rem",
 						}}
 					>
-						Loading...
+						🔃 Loading...
 					</h1>
 				}
 			>
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
 							marginTop: "10rem",
 						}}
 					>
-						Loading...
+						🔃 Loading...
 					</h1>
 				}
 			>

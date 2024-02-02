@@ -19,7 +19,7 @@ const DashboardPage = () => {
 							marginTop: "10rem",
 						}}
 					>
-						Loading...
+						🔃 Loading...
 					</h1>
 				}
 			>

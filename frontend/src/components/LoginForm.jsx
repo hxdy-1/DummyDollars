@@ -31,7 +31,7 @@ const LoginForm = () => {
 
 	return (
 		<Card>
-			<h1 className="font-sans text-4xl font-bold">Login</h1>
+			<h1 className="font-sans text-4xl font-bold">Login 🔒</h1>
 			{!actionData ? (
 				<p className="font-sans font-semibold text-stone-400">
 					Enter your credentials to access your account
@@ -73,7 +73,7 @@ const LoginForm = () => {
 					required
 				/>
 				<button className={`${buttonClasses}`}>
-					{!loggingIn ? "Login" : "Logging In..."}
+					{!loggingIn ? "Login 🔏" : "Logging In..."}
 				</button>
 			</Form>
 			<p>

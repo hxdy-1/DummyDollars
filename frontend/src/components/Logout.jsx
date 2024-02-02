@@ -19,9 +19,9 @@ const Logout = () => {
 	return (
 		<button
 			onClick={logoutHandler}
-			className="bg-white font-bold w-full text-black rounded-md py-2 px-4 transition-all transform hover:bg-red-500 active:translate-y-0.5 shadow-none"
+			className="bg-white font-bold w-full text-black rounded-md py-2 px-4 transition-all transform hover:bg-red-500 hover:text-white active:translate-y-0.5 shadow-none"
 		>
-			{!isLoggingOut ? "Logout" : "Logging out..."}
+			{!isLoggingOut ? "Logout 🏃‍♂️" : "Logging out..."}
 		</button>
 	);
 };

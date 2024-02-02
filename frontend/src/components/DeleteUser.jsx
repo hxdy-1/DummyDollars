@@ -52,7 +52,7 @@ const DeleteUser = () => {
 			onClick={deleteHandler}
 			className="bg-white font-bold w-full text-black rounded-md py-2 px-4 transition-all transform hover:bg-red-800 hover:text-white active:translate-y-0.5 shadow-none"
 		>
-			{!isDeleting ? "Delete account 💀" : "Deleting your account..."}
+			{!isDeleting ? "Delete account ⚠️" : "Deleting your account..."}
 		</button>
 	);
 };

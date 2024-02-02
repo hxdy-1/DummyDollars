@@ -30,7 +30,7 @@ const SignupForm = () => {
 
 	return (
 		<Card customStyles="my-8">
-			<h1 className="font-sans text-4xl font-bold">Signup</h1>
+			<h1 className="font-sans text-4xl font-bold">Signup 🖋️</h1>
 			{!actionData ? (
 				<p className="font-sans font-semibold text-stone-400">
 					Enter your information to create an account
@@ -98,7 +98,7 @@ const SignupForm = () => {
 					placeholder="Create a strong password"
 				/>
 				<button className={`${buttonClasses}`}>
-					{!signingIn ? "Signup" : "Signing Up..."}
+					{!signingIn ? "Signup 🖋️" : "Signing Up..."}
 				</button>
 			</Form>
 			<p>

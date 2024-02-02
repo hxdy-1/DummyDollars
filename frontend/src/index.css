@@ -17,6 +17,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+body {
+	height: 100dvh;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
 /* width */
 ::-webkit-scrollbar {
 	width: 10px;

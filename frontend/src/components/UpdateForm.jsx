@@ -5,7 +5,7 @@ const inputClasses =
 	"w-full py-1.5 px-2 rounded outline-none focus:outline-stone-500 -outline-offset-2";
 
 const buttonClasses =
-	"bg-white font-bold w-full text-black rounded-md py-2 px-4 transition-all transform hover:bg-emerald-500 active:translate-y-0.5 shadow-none";
+	"bg-white font-bold w-full text-black rounded-md py-2 px-4 transition-all transform hover:bg-emerald-500 hover:text-white active:translate-y-0.5 shadow-none";
 
 const UpdateForm = () => {
 	const [showForm, setShowForm] = useState(false);
@@ -35,7 +35,7 @@ const UpdateForm = () => {
 					onClick={() => setShowForm(true)}
 					className={`${buttonClasses} px-4`}
 				>
-					Update user details
+					Update user details 📝
 				</button>
 			)}
 			{showForm && (
@@ -93,7 +93,7 @@ const UpdateForm = () => {
 						placeholder="Create a strong password"
 					/>
 					<button className={`${buttonClasses}`}>
-						{!isUpdating ? "Update" : "Updating..."}
+						{!isUpdating ? "Update ✍️" : "Updating..."}
 					</button>
 				</Form>
 			)}
