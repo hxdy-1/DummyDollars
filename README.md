@@ -1,6 +1,6 @@
 # DummyDollars - a basic version of PayTM
 
-**for complete showcase(complete UI/UX), please wait for me to host it 🙂**
+# [DummyDollars 💸 - live](https://dummy-dollars.vercel.app/)
 
 ## Login page "/":
 ![image](https://github.com/hxdy-1/DummyDollars/assets/115286446/0654b980-92aa-4635-9529-22f41e7d52ae)
