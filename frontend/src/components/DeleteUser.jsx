@@ -21,9 +21,13 @@ const DeleteUser = () => {
 				// console.log("Delete handler: " + username);
 				// console.log("Token from deleteHandler: ", token);
 
+				const API = import.meta.env.VITE_BACKEND_API;
+				// console.log(API);
+
 				try {
 					const { data } = await axios.delete(
-						"http://localhost:3000/api/v1/user/delete",
+						// "http://localhost:3000/api/v1/user/delete",
+						API + "user/delete",
 						{
 							data: { username },
 							headers: {

@@ -45,10 +45,14 @@ export default DashboardPage;
 export const loadData = async () => {
 	const token = localStorage.getItem("token");
 	// console.log(token);
+	// const API = process.env.REACT_APP_API;
+	const API = import.meta.env.VITE_BACKEND_API;
+	// console.log(API);
 
 	try {
 		const { data } = await axios.get(
-			"http://localhost:3000/api/v1/accounts/balance",
+			// "http://localhost:3000/api/v1/accounts/balance",
+			API + "accounts/balance",
 			{
 				headers: {
 					Authorization: "Bearer " + token,

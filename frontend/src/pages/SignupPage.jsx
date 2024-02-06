@@ -17,10 +17,13 @@ export const action = async ({ request }) => {
 		password: data.get("password"),
 	};
 	// console.log(authData);
+	const API = import.meta.env.VITE_BACKEND_API;
+	// console.log(API);
 
 	try {
 		const { data } = await axios.post(
-			"http://localhost:3000/api/v1/user/signup",
+			// "http://localhost:3000/api/v1/user/signup",
+			API + "user/signup",
 			authData
 		);
 

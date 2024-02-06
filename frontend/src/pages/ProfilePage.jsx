@@ -41,9 +41,13 @@ export const action = async ({ request }) => {
 	const token = localStorage.getItem("token");
 	// console.log(token);
 
+	const API = import.meta.env.VITE_BACKEND_API;
+	// console.log(API);
+
 	try {
 		const { data } = await axios.put(
-			"http://localhost:3000/api/v1/user",
+			// "http://localhost:3000/api/v1/user",
+			API + "user",
 			authData,
 			{
 				headers: {

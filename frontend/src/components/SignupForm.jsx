@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Card from "../utils/Card";
 import { Form, Link, useActionData, useNavigation } from "react-router-dom";
 
@@ -15,6 +15,11 @@ const SignupForm = () => {
 		username: "",
 		password: "",
 	});
+
+	const firstNameRef = useRef();
+	useEffect(() => {
+		firstNameRef.current.focus();
+	}, []);
 
 	const actionData = useActionData();
 	const navigation = useNavigation();
@@ -49,6 +54,7 @@ const SignupForm = () => {
 					First Name
 				</label>
 				<input
+					ref={firstNameRef}
 					required
 					onChange={handleChange}
 					type="text"

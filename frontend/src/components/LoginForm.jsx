@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Card from "../utils/Card";
 import { Form, Link, useActionData, useNavigation } from "react-router-dom";
 
@@ -13,6 +13,11 @@ const LoginForm = () => {
 		username: "",
 		password: "",
 	});
+
+	const usernameRef = useRef();
+	useEffect(() => {
+		usernameRef.current.focus();
+	}, []);
 
 	const actionData = useActionData();
 	const navigation = useNavigation();
@@ -50,6 +55,7 @@ const LoginForm = () => {
 					Username
 				</label>
 				<input
+					ref={usernameRef}
 					type="text"
 					id="username"
 					name="username"

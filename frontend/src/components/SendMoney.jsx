@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Card from "../utils/Card";
 import {
 	Form,
@@ -9,9 +9,13 @@ import {
 
 const SendMoney = () => {
 	const [searchParams] = useSearchParams();
+	const amountInputRef = useRef();
 	const actionData = useActionData();
 	const navigation = useNavigation();
 	const sendingMoney = navigation.state === "submitting";
+	useEffect(() => {
+		amountInputRef.current.focus();
+	}, []);
 	// console.log(searchParams.get("name"));
 	// console.log(searchParams.get("id"));
 	// console.log(actionData);
@@ -40,6 +44,7 @@ const SendMoney = () => {
 					&#8377; Enter amount (in Rs.)
 				</label>
 				<input
+					ref={amountInputRef}
 					className="px-2 py-2 rounded-md shadow-lg w-full"
 					type="number"
 					name="amount"

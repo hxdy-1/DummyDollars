@@ -10,9 +10,13 @@ const MainDashboard = ({ balance, users }) => {
 	const [filter, setFilter] = useState("");
 	// console.log(filter?.length);
 
+	const API = import.meta.env.VITE_BACKEND_API;
+	// console.log(API);
+
 	useEffect(() => {
 		axios
-			.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
+			// .get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
+			.get(`${API}user/bulk?filter=${filter}`)
 			.then((response) => {
 				if (filter.length === 0) {
 					// console.log(filter?.length);

@@ -22,10 +22,13 @@ export const action = async ({ request }) => {
 	// console.log("amount: ", amount);
 	// console.log("id: ", id);
 	// console.log("token", token);
+	const API = import.meta.env.VITE_BACKEND_API;
+	// console.log(API);
 
 	try {
 		const { data } = await axios.post(
-			"http://localhost:3000/api/v1/accounts/transfer",
+			// "http://localhost:3000/api/v1/accounts/transfer",
+			API + "accounts/transfer",
 			{ to: id, amount },
 			{
 				headers: {
