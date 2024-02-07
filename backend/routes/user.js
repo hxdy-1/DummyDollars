@@ -1,4 +1,5 @@
 const express = require("express");
+const { hash, compare } = require("bcryptjs");
 const z = require("zod");
 const { User, Account } = require("../db/db");
 const jwt = require("jsonwebtoken");
@@ -35,9 +36,11 @@ router.post("/signup", async (req, res) => {
 		});
 	}
 
+	const hashedPw = await hash(password, 12);
+
 	const user = await User.create({
 		username,
-		password,
+		password: hashedPw,
 		firstName,
 		lastName,
 	});
@@ -73,21 +76,26 @@ router.post("/signin", async (req, res) => {
 
 	const user = await User.findOne({
 		username,
-		password,
 	});
+	// console.log("user.password: ", user?.password);
+	// console.log("password: ", password);
 
 	if (user) {
-		const token = jwt.sign(
-			{
-				userId: user._id,
-			},
-			JWT_SECRET
-		);
+		const isPasswordValid = await compare(password, user.password);
 
-		res.json({
-			token,
-		});
-		return;
+		if (isPasswordValid) {
+			const token = jwt.sign(
+				{
+					userId: user._id,
+				},
+				JWT_SECRET
+			);
+
+			res.json({
+				token,
+			});
+			return;
+		}
 	}
 
 	res.status(411).json({
@@ -109,6 +117,10 @@ router.put("/", middleware, async (req, res) => {
 		res.status(411).json({
 			message: "Error while updating information",
 		});
+	}
+
+	if (req.body.password) {
+		req.body.password = await hash(req.body.password, 12);
 	}
 
 	await User.updateOne({ _id: req.userId }, req.body);
