@@ -39,6 +39,7 @@ export const action = async ({ request }) => {
 
 		console.log(data);
 		console.log(data.message);
+		alert(data?.message);
 		return redirect("/dashboard");
 	} catch (error) {
 		console.log(error.response.data.message);
