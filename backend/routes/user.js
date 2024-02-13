@@ -17,6 +17,24 @@ const userSignupBody = z.object({
 	lastName: z.string(),
 });
 
+router.get("/me", middleware, async (req, res) => {
+	const userId = req.userId;
+
+	if (!userId) {
+		return res.status(403).json({ message: "You are not logged in" });
+	}
+
+	const userDetails = await User.findById(userId);
+
+	res.json({
+		user: {
+			firstName: userDetails.firstName,
+			lastName: userDetails.lastName,
+			username: userDetails.username,
+		},
+	});
+});
+
 router.post("/signup", async (req, res) => {
 	const { username, password, lastName, firstName } = req.body;
 

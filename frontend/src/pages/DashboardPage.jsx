@@ -2,12 +2,24 @@ import React, { Suspense } from "react";
 import Navbar from "../components/Navbar";
 import MainDashboard from "../components/MainDashboard";
 import axios from "axios";
-import { Await, useLoaderData, defer } from "react-router-dom";
+import { Await, useLoaderData, defer, useNavigate } from "react-router-dom";
 import { LoadingTxt } from "../utils/LoadingTxt";
+import { useUser } from "../hooks/useUser";
 
 const DashboardPage = () => {
 	const { data } = useLoaderData();
 	document.getElementById("root").style.justifyContent = "flex-start";
+
+	const navigate = useNavigate();
+	const user = useUser();
+
+	if (user.loading) {
+		return LoadingTxt;
+	}
+
+	if (!user.userDetails) {
+		return navigate("/");
+	}
 
 	return (
 		<>

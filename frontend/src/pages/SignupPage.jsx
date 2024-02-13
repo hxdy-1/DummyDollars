@@ -1,8 +1,21 @@
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import SignupForm from "../components/SignupForm";
 import axios from "axios";
+import { useUser } from "../hooks/useUser";
+import { LoadingTxt } from "../utils/LoadingTxt";
 
 const SignupPage = () => {
+	const navigate = useNavigate();
+	const user = useUser();
+
+	if (user.loading) {
+		return LoadingTxt;
+	}
+
+	if (user.userDetails) {
+		navigate("/dashboard");
+	}
+
 	return <SignupForm />;
 };
 

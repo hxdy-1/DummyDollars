@@ -1,9 +1,23 @@
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import axios from "axios";
+import { useUser } from "../hooks/useUser";
+import { LoadingTxt } from "../utils/LoadingTxt";
 
 const LoginPage = () => {
 	document.getElementById("root").style.justifyContent = "center";
+
+	const navigate = useNavigate();
+	const user = useUser();
+
+	if (user.loading) {
+		return LoadingTxt;
+	}
+
+	if (user.userDetails) {
+		navigate("/dashboard");
+	}
+
 	return <LoginForm />;
 };
 

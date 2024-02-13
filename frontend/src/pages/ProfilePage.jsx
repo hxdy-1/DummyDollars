@@ -3,11 +3,25 @@ import Logout from "../components/Logout";
 import Card from "../utils/Card";
 import UpdateForm from "../components/UpdateForm";
 import axios from "axios";
-import { Link, redirect, useSearchParams } from "react-router-dom";
+import { Link, redirect, useNavigate, useSearchParams } from "react-router-dom";
 import DeleteUser from "../components/DeleteUser";
+import { useUser } from "../hooks/useUser";
+import { LoadingTxt } from "../utils/LoadingTxt";
 
 const ProfilePage = () => {
 	const [searchParams] = useSearchParams();
+
+	const navigate = useNavigate();
+	const user = useUser();
+
+	if (user.loading) {
+		return LoadingTxt;
+	}
+
+	if (!user.userDetails) {
+		return navigate("/");
+	}
+
 	document.getElementById("root").style.justifyContent = "center";
 	return (
 		<Card>
