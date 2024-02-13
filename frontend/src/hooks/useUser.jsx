@@ -5,10 +5,14 @@ export const useUser = () => {
 	const [loading, setLoading] = useState(true);
 	const [userDetails, setUserDetails] = useState(null);
 
+	const API = import.meta.env.VITE_BACKEND_API;
+	console.log(API);
+
 	async function getDetails() {
 		try {
 			const { data } = await axios.get(
-				"http://localhost:3000/api/v1/user/me",
+				// "http://localhost:3000/api/v1/user/me",
+				API + "user/me",
 				{
 					headers: {
 						Authorization:
