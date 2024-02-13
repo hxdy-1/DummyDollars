@@ -12,25 +12,25 @@ const SignupPage = lazy(() => import("./pages/SignupPage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 
+const fallbackLoader = (
+	<h1
+		style={{
+			textAlign: "center",
+			fontWeight: "bolder",
+			fontSize: "1.2rem",
+			// marginTop: "10rem",
+		}}
+	>
+		🔃 Loading...
+	</h1>
+);
+
 const router = createBrowserRouter([
 	{
 		path: "/",
 		action: loginAction,
 		element: (
-			<Suspense
-				fallback={
-					<h1
-						style={{
-							textAlign: "center",
-							fontWeight: "bolder",
-							fontSize: "1.2rem",
-							// marginTop: "10rem",
-						}}
-					>
-						🔃 Loading...
-					</h1>
-				}
-			>
+			<Suspense fallback={fallbackLoader}>
 				<LoginPage />
 			</Suspense>
 		),
@@ -39,20 +39,7 @@ const router = createBrowserRouter([
 		path: "/signup",
 		action: signupAction,
 		element: (
-			<Suspense
-				fallback={
-					<h1
-						style={{
-							textAlign: "center",
-							fontWeight: "bolder",
-							fontSize: "1.2rem",
-							// marginTop: "10rem",
-						}}
-					>
-						🔃 Loading...
-					</h1>
-				}
-			>
+			<Suspense fallback={fallbackLoader}>
 				<SignupPage />
 			</Suspense>
 		),
@@ -61,66 +48,25 @@ const router = createBrowserRouter([
 		path: "/dashboard",
 		loader: dashboardLoader,
 		element: (
-			<Suspense
-				fallback={
-					<h1
-						style={{
-							textAlign: "center",
-							fontWeight: "bolder",
-							fontSize: "1.2rem",
-							// marginTop: "10rem",
-						}}
-					>
-						🔃 Loading...
-					</h1>
-				}
-			>
+			<Suspense fallback={fallbackLoader}>
 				<DashboardPage />
 			</Suspense>
 		),
 	},
 	{
 		path: "/send",
-		// loader: dashboardLoader,
 		action: sendAction,
 		element: (
-			<Suspense
-				fallback={
-					<h1
-						style={{
-							textAlign: "center",
-							fontWeight: "bolder",
-							fontSize: "1.2rem",
-							// marginTop: "10rem",
-						}}
-					>
-						🔃 Loading...
-					</h1>
-				}
-			>
+			<Suspense fallback={fallbackLoader}>
 				<SendPage />
 			</Suspense>
 		),
 	},
 	{
 		path: "/profile",
-		// loader: dashboardLoader,
 		action: updateAction,
 		element: (
-			<Suspense
-				fallback={
-					<h1
-						style={{
-							textAlign: "center",
-							fontWeight: "bolder",
-							fontSize: "1.2rem",
-							// marginTop: "10rem",
-						}}
-					>
-						🔃 Loading...
-					</h1>
-				}
-			>
+			<Suspense fallback={fallbackLoader}>
 				<ProfilePage />
 			</Suspense>
 		),
