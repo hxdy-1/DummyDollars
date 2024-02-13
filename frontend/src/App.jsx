@@ -6,31 +6,19 @@ import { loader as dashboardLoader } from "./pages/DashboardPage";
 import { action as sendAction } from "./pages/SendPage";
 import { action as updateAction } from "./pages/ProfilePage";
 import SendPage from "./pages/SendPage";
+import { LoadingTxt } from "./utils/LoadingTxt";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const SignupPage = lazy(() => import("./pages/SignupPage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 
-const fallbackLoader = (
-	<h1
-		style={{
-			textAlign: "center",
-			fontWeight: "bolder",
-			fontSize: "1.2rem",
-			// marginTop: "10rem",
-		}}
-	>
-		🔃 Loading...
-	</h1>
-);
-
 const router = createBrowserRouter([
 	{
 		path: "/",
 		action: loginAction,
 		element: (
-			<Suspense fallback={fallbackLoader}>
+			<Suspense fallback={LoadingTxt}>
 				<LoginPage />
 			</Suspense>
 		),
@@ -39,7 +27,7 @@ const router = createBrowserRouter([
 		path: "/signup",
 		action: signupAction,
 		element: (
-			<Suspense fallback={fallbackLoader}>
+			<Suspense fallback={LoadingTxt}>
 				<SignupPage />
 			</Suspense>
 		),
@@ -48,7 +36,7 @@ const router = createBrowserRouter([
 		path: "/dashboard",
 		loader: dashboardLoader,
 		element: (
-			<Suspense fallback={fallbackLoader}>
+			<Suspense fallback={LoadingTxt}>
 				<DashboardPage />
 			</Suspense>
 		),
@@ -57,7 +45,7 @@ const router = createBrowserRouter([
 		path: "/send",
 		action: sendAction,
 		element: (
-			<Suspense fallback={fallbackLoader}>
+			<Suspense fallback={LoadingTxt}>
 				<SendPage />
 			</Suspense>
 		),
@@ -66,7 +54,7 @@ const router = createBrowserRouter([
 		path: "/profile",
 		action: updateAction,
 		element: (
-			<Suspense fallback={fallbackLoader}>
+			<Suspense fallback={LoadingTxt}>
 				<ProfilePage />
 			</Suspense>
 		),
