@@ -7,6 +7,7 @@ import { action as sendAction } from "./pages/SendPage";
 import { action as updateAction } from "./pages/ProfilePage";
 import SendPage from "./pages/SendPage";
 import { LoadingTxt } from "./utils/LoadingTxt";
+import ErrorPage from "./pages/ErrorPage";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const SignupPage = lazy(() => import("./pages/SignupPage"));
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
 				<LoginPage />
 			</Suspense>
 		),
+		errorElement: <ErrorPage />,
 	},
 	{
 		path: "/signup",
